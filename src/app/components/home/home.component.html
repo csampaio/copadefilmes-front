@@ -19,6 +19,13 @@
                     </svg>
                 </div>
             </div>
+            <ng-container *ngIf="error && !filmes; else elseTemplate">
+                <div class="col-12 text-center text-white text-center">Erro ao carregar a lista de filmes</div>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <div class="col-12 text-center text-white text-center">Nenhum filme disponível</div>
+            </ng-template>
+            
         </div>
     </div>
 </div>
