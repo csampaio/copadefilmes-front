@@ -11,16 +11,20 @@ export class HomeComponent implements OnInit {
 
   filmes: Array<Filme>;
   error: boolean = false;
+  carregando: boolean = false;
 
   constructor(private catalogoService: CatalogoService) { }
 
   ngOnInit(): void {
-    this.catalogoService.getCatalogo().subscribe( (catalogo) => this.filmes = catalogo,
-    (err) => {
-      this.error = true;
-      console.error(err);
-    },
-    () => console.log('FIM'));
+    this.carregando = true;
+    this.catalogoService.getCatalogo().subscribe( 
+      (catalogo) => this.filmes = catalogo,
+      (err) => {
+        this.error = true;
+        console.error(err);
+        this.carregando = false;
+      },
+      () => this.carregando = false)
   }
 
 }
