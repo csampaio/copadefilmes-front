@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Filme } from '../models/filme';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogoService {
 
-  private hostUrl: string = 'https://localhost:5001/api/';
+  private hostUrl: string = environment.hostUrl;
   private headers: HttpHeaders = new HttpHeaders();
 
   constructor(private httpClient: HttpClient) { 
