@@ -2,4 +2,10 @@
     min-height: 90px;
     background-color: whitesmoke;
     padding: 8px; 
+
+}
+
+.card-filme.selected {
+    background-color: seagreen;
+    color: white;
 }

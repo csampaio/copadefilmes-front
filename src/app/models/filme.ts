@@ -6,4 +6,5 @@ export interface Filme {
     titulo: string;
     ano: number;
     nota: number;
+    selected: boolean;
 }
