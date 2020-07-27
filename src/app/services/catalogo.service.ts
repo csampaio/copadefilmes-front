@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CatalogoService {
 
-  private hostUrl: string = 'http://copafilmes.azurewebsites.net/api/';
+  private hostUrl: string = 'https://localhost:5001/api/';
   private headers: HttpHeaders = new HttpHeaders();
 
   constructor(private httpClient: HttpClient) { 
@@ -19,6 +19,6 @@ export class CatalogoService {
    * Pega a lista de filmes do servico de catalogos de filmes 
    */
   public getCatalogo(): Observable<Filme[]> {
-    return this.httpClient.get<Filme[]>(this.hostUrl + 'filmes', {headers: this.headers});
+    return this.httpClient.get<Filme[]>(this.hostUrl + 'catalogo', {headers: this.headers});
   }
 }

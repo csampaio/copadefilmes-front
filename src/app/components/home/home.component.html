@@ -21,16 +21,16 @@
                 <ng-container *ngIf="error && !filmes; else elseTemplate">
                     <div class="col-12 text-center text-white text-center">Erro ao carregar a lista de filmes</div>
                 </ng-container>
-                <ng-template #elseTemplate>
+                <ng-template *ngIf="!filmes" #elseTemplate>
                     <div class="col-12 text-center text-white text-center">Nenhum filme disponível</div>
                 </ng-template>
             </ng-template>
             
-            <div *ngFor="let filme of filmes; let i=index" class="col-xs-12 col-sm-6 col-lg-3 p-1" btnCheckbox
+            <div *ngFor="let filme of filmes" class="col-xs-12 col-sm-6 col-lg-3 p-1" btnCheckbox
                 tabindex="0" role="button">
-                <div class="bg-white p-2 d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center card-filme">
                     <div>
-                        <b>Filme {{i}}</b><br><small>1988</small>
+                        <b>{{filme.titulo}}</b><br><small>{{filme.ano}}</small>
                     </div>
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-square" fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg">
